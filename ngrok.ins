@@ -1,0 +1,60 @@
+setterm -foreground green
+figlet NGROK
+setterm -foreground cyan
+echo "
+[1]Manual
+[2]Automatico
+"
+setterm -foreground white
+read -p ">>" opc
+case $opc in
+
+1)
+setterm -foreground red
+echo Para los pasos manuales copie y pegue los comandos uno a uno
+setterm -foreground white
+echo "
+cd /sdcard/Download/
+
+
+mv ngrok-stable-linux-arm.zip $HOME
+
+
+cd
+
+unzip ngrok-stable-linux-arm.zip
+
+
+rm -r ngrok-stable-linux-arm.zip
+
+
+chmod 777 ngrok"
+
+
+;;
+
+
+2)
+echo Instalando ngrok
+echo "     En 6 segundos"
+sleep 6
+cd /sdcard/download/
+sleep 2
+echo Moviendo...
+mv ngrok-stable-linux-arm.zip /data/data/com.termux/files/home
+sleep 1
+cd
+unzip ngrok-stable-linux-arm.zip
+echo Descomprimiendo...
+sleep 4
+chmod 777 ngrok
+rm -r ngrok-stable-linux-arm.zip
+sleep 1
+echo Completo
+
+;;
+*)bash /data/data/com.termux/files/home/ngrok.ins
+;;
+
+esac
+setterm -foreground white
